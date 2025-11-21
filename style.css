@@ -39,7 +39,7 @@ body.timeline-page {
 .galaxy-clouds {
   position: fixed;
   inset: 0;
-  background: url("https://i.imgur.com/4NJl9Qp.jpeg") center/cover no-repeat;
+  background: url("https://www.pngall.com/wp-content/uploads/13/Star-White-Transparent.png") center/cover no-repeat;
   opacity: 0.28;
   filter: brightness(1.25) blur(2px);
   animation: galaxyFloat 35s ease-in-out infinite alternate;
