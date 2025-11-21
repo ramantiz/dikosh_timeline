@@ -1,0 +1,355 @@
+/* ------------------------------------------------------
+   GALAXY ANIMATED BACKGROUND (NEW)
+------------------------------------------------------ */
+
+body.timeline-page {
+  background: #05010b;
+  position: relative;
+  overflow-x: hidden;
+  z-index: 0;
+}
+
+/* слой звёзд — маленькие */
+.stars-small {
+  position: fixed;
+  inset: 0;
+  background: transparent url("https://i.imgur.com/9cNwUoO.png") repeat;
+  animation: starsMove 90s linear infinite;
+  opacity: 0.5;
+  z-index: -8;
+}
+
+/* слой звёзд — крупные */
+.stars-big {
+  position: fixed;
+  inset: 0;
+  background: transparent url("https://i.imgur.com/Phu7Qe1.png") repeat;
+  animation: starsMove 180s linear infinite;
+  opacity: 0.35;
+  z-index: -9;
+}
+
+/* анимация движения */
+@keyframes starsMove {
+  from { background-position: 0 0; }
+  to   { background-position: -2000px 2000px; }
+}
+
+/* движущаяся туманность */
+.galaxy-clouds {
+  position: fixed;
+  inset: 0;
+  background: url("https://i.imgur.com/4NJl9Qp.jpeg") center/cover no-repeat;
+  opacity: 0.28;
+  filter: brightness(1.25) blur(2px);
+  animation: galaxyFloat 35s ease-in-out infinite alternate;
+  z-index: -10;
+}
+
+@keyframes galaxyFloat {
+  0%   { transform: scale(1) translateY(0px) translateX(0px); }
+  100% { transform: scale(1.08) translateY(-18px) translateX(10px); }
+}
+
+/* ------------------------------------------------------
+   GLOBAL RESET + BASE
+------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: "Poppins", sans-serif;
+  background: transparent; /* ← FIX */
+  color: #fff;
+  overflow-x: hidden;
+}
+
+
+/* ------------------------------------------------------
+   GLASS COMPONENT
+------------------------------------------------------ */
+.glass {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+}
+
+/* ------------------------------------------------------
+   HEADER
+------------------------------------------------------ */
+.top-header {
+  padding: 4rem 1.5rem 3rem;
+  text-align: center;
+}
+
+.top-header-inner {
+  max-width: 760px;
+  margin: auto;
+  padding: 2rem 2rem 2.4rem;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  opacity: 0.8;
+  letter-spacing: 0.15em;
+}
+
+.top-header h1 {
+  font-size: 2.3rem;
+  margin-top: 0.4rem;
+}
+
+.subtitle {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.highlight-name {
+  color: #e7bdff;
+  text-shadow: 0 0 10px #e7bdff;
+}
+
+.ramosh {
+  color: #c59dff;
+}
+
+/* ------------------------------------------------------
+   TIMELINE STRUCTURE
+------------------------------------------------------ */
+.timeline-wrapper {
+  width: 95%;
+  max-width: 900px;
+  margin: auto;
+  padding-bottom: 6rem;
+  position: relative;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 0;
+  background: linear-gradient(to bottom, #c492ff, #e8c9ff);
+  border-radius: 4px;
+  transition: height 0.35s linear;
+  z-index: -1;
+}
+
+.timeline-item {
+  display: flex;
+  position: relative;
+  margin: 3.6rem 0;
+}
+
+.timeline-item.left { justify-content: flex-start; }
+.timeline-item.right { justify-content: flex-end; }
+
+.timeline-dot {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 18px;
+  background: #e8caff;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  z-index: 5;
+}
+
+.timeline-card {
+  width: 46%;
+  padding: 1.6rem 1.6rem 1.8rem;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp 1s forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chapter-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #e7bdff;
+  margin-bottom: 0.4rem;
+}
+
+.timeline-card h2 {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-text {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  opacity: 0.85;
+}
+
+/* ------------------------------------------------------
+   PHOTOS
+------------------------------------------------------ */
+.photo-placeholder {
+  margin-top: 1rem;
+  padding: 0.4rem;
+  border-radius: 14px;
+  border: 1px dashed rgba(255,255,255,0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.photo-img {
+  width: 100%;
+  max-width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ------------------------------------------------------
+   LETTER SECTION
+------------------------------------------------------ */
+.letter-section {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.letter-wrapper {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.envelope {
+  width: 240px;
+  height: 160px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.envelope:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+
+.envelope-top {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(135deg, #b57bff, #e7cfff);
+  clip-path: polygon(0 0, 100% 0, 50% 85%);
+  border-radius: 14px 14px 0 0;
+}
+
+.envelope-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70%;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(18px);
+  border-radius: 0 0 14px 14px;
+  border: 1px solid rgba(255,255,255,0.3);
+  clip-path: polygon(0 25%, 100% 25%, 100% 100%, 0 100%);
+}
+
+.envelope-text {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+.letter-paper {
+  width: 300px;
+  background: #fff;
+  color: #222;
+  border-radius: 14px;
+  padding: 1.6rem;
+  border: 1px solid #ccc;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+
+  margin-top: -20px;
+  opacity: 0;
+  transform: translateY(20px) scale(.95);
+  transition: 0.6s ease;
+  pointer-events: none;
+}
+
+.letter-paper.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.letter-content p {
+  margin-bottom: 0.9rem;
+  line-height: 1.55;
+  color: #2c1a44;
+}
+
+.letter-content strong {
+  color: #933aff;
+}
+
+/* ------------------------------------------------------
+   FOOTER
+------------------------------------------------------ */
+.footer {
+  text-align: center;
+  padding: 3.5rem 0 2.5rem;
+  opacity: 0.85;
+}
+
+/* ------------------------------------------------------
+   RESPONSIVE
+------------------------------------------------------ */
+@media (max-width: 900px) {
+  .timeline-line {
+    left: 12px;
+    transform: none;
+  }
+
+  .timeline-dot {
+    left: 12px;
+    transform: translateX(0);
+  }
+
+  .timeline-card {
+    width: calc(100% - 36px);
+    margin-left: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .photo-img {
+    width: 150px !important;
+    height: 150px !important;
+  }
+}

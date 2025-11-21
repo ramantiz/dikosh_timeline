@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For Dikosh 💜</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body class="intro-page">
+  <div class="background-layer"></div>
+  <div class="floating-container" id="floating-container"></div>
+
+  <main class="center-wrapper fade-in">
+    <section class="intro-card glass">
+      <h1 class="intro-title">Are you<br><span class="highlight-name">Dikosh</span>?</h1>
+
+      <p class="intro-text">
+        This small galaxy was created by  
+        <span class="ramosh">your Ramosh 💫</span>
+      </p>
+
+      <div class="intro-buttons">
+        <button id="btn-yes" class="btn primary">Yes, it’s me 💜</button>
+        <button id="btn-no" class="btn ghost">No 😶</button>
+      </div>
+
+      <p id="not-for-you" class="tiny-note hidden">
+        Then this page is only for someone special named <span class="highlight-name">Dikosh</span> 💌
+      </p>
+    </section>
+  </main>
+
+  <!-- 💜 NEW PASSWORD MODAL WITH DATE INPUTS -->
+  <div id="password-modal" class="password-modal hidden">
+    <div class="modal-content glass">
+
+      <h2>Enter the Special Date 💜</h2>
+      <p class="modal-hint">Hint: the day we officially started dating ✨</p>
+
+      <div class="date-row">
+        <input id="day-input" 
+               type="number" 
+               min="1" max="31" 
+               placeholder="Day" 
+               class="password-input small">
+
+        <select id="month-input" class="password-input small">
+          <option value="">Month</option>
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+      </div>
+
+      <button id="password-submit" class="btn primary modal-btn">Unlock 💫</button>
+
+      <p id="password-error" class="password-error hidden">
+        Not this one, my love. Try again 💜
+      </p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

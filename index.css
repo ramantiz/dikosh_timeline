@@ -1,0 +1,246 @@
+/* ------------------------------
+    GLOBAL STYLES
+------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body.intro-page {
+  background: radial-gradient(circle at 20% 20%, #3a0066, #000000 70%);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ------------------------------
+    BACKGROUND GALAXY LAYER
+------------------------------ */
+.background-layer {
+  position: fixed;
+  inset: 0;
+  background: url("photos/stars-bg.png"),
+              radial-gradient(circle at 50% 0%, #6a00ff55, transparent 60%);
+  background-size: cover;
+  z-index: -2;
+  opacity: 0.55;
+  animation: fadeStars 6s ease-in-out infinite alternate;
+}
+
+@keyframes fadeStars {
+  from { opacity: 0.45; }
+  to { opacity: 0.7; }
+}
+
+/* ------------------------------
+    FLOATING HEARTS & STARS
+------------------------------ */
+.floating-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.floating-shape {
+  position: absolute;
+  animation: floatUp linear forwards;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  20% { opacity: 1; }
+  100% {
+    transform: translateY(-120vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* ------------------------------
+    CENTER CARD
+------------------------------ */
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 6vh;
+}
+
+.intro-card {
+  width: 90%;
+  max-width: 420px;
+  padding: 2.2rem;
+  border-radius: 16px;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  animation: fadeIn 1.1s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.highlight-name {
+  color: #d596ff;
+  font-weight: 700;
+}
+
+.ramosh {
+  color: #ffb3ff;
+  font-weight: 600;
+}
+
+.intro-title {
+  font-size: 2.4rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.intro-text {
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+/* ------------------------------
+    BUTTONS
+------------------------------ */
+.intro-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  padding: 0.65rem 1.4rem;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.25s;
+  border: none;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #a34bff, #d76bff);
+  color: #fff;
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid #ffffff55;
+  color: #fff;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+/* ------------------------------
+    "NOT FOR YOU" NOTE
+------------------------------ */
+.tiny-note {
+  font-size: 0.85rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.4s ease;
+}
+
+.tiny-note:not(.hidden) {
+  opacity: 1;
+}
+
+/* ------------------------------
+    PASSWORD MODAL
+------------------------------ */
+.password-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(6px);
+  transition: 0.3s ease;
+  opacity: 1;
+}
+
+.password-modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  width: 90%;
+  max-width: 420px;
+  padding: 2rem;
+  border-radius: 16px;
+  backdrop-filter: blur(25px);
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.28);
+  text-align: center;
+  animation: modalPop 0.4s ease;
+}
+
+@keyframes modalPop {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-hint {
+  opacity: 0.75;
+  margin-bottom: 1.3rem;
+}
+
+.date-row {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.password-input {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid #ffffff66;
+  padding: 0.7rem;
+  border-radius: 8px;
+  color: #fff;
+  width: 100%;
+}
+
+.password-input.small {
+  width: 48%;
+}
+
+.password-input option {
+  color: black;
+}
+
+.password-error {
+  color: #ff97aa;
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  opacity: 1;
+}
+
+.password-error.hidden {
+  display: none;
+}
+
+/* Shake animation for wrong date */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
